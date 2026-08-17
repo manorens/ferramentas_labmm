@@ -407,9 +407,10 @@ function filtrar() {
                 insumo.categoria === categoria;
 
 
-            return
+            return (
                 correspondeTexto &&
-                correspondeCategoria;
+                correspondeCategoria
+            );
 
         });
 
