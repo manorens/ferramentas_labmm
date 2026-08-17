@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventário CTW</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Inventário - Laboratório de Manutenção</h1>
+
+        <p>Centro de Tecnologia WEG</p>
+
+    </header>
+
+
+    <main>
+
+        <!-- CADASTRO -->
+
+        <section class="cadastro">
+
+            <h2>Cadastrar ferramenta</h2>
+
+            <form id="formInsumo">
+
+                <input
+                    type="text"
+                    id="codigo"
+                    placeholder="Código"
+                >
+
+                <input
+                    type="text"
+                    id="descricao"
+                    placeholder="Descrição"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="quantidade"
+                    placeholder="Quantidade"
+                    min="0"
+                    required
+                >
+
+                <select id="categoria" required>
+
+                    <option value="">
+                        Selecione uma categoria
+                    </option>
+
+                    <option value="Instrumento de Medição">
+                        Instrumento de Medição
+                    </option>
+
+                    <option value="Elemento de Fixação">
+                        Elemento de Fixação
+                    </option>
+
+                    <option value="Chaves">
+                        Chaves
+                    </option>
+
+                    <option value="Ferramentas Manuai">
+                        Ferramentas Manuais
+                    </option>
+
+                    <option value="Ferramenta de Desbaste">
+                        Ferramenta de Desbaste
+                    </option>
+
+                    <option value="Rolamentos">
+                        Rolamentos
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Cadastrar
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- PESQUISA -->
+
+        <section class="pesquisa">
+
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="Pesquisar ferramenta..."
+            >
+
+            <select id="filtroCategoria">
+
+                <option value="">
+                    Todas as categorias
+                </option>
+
+                <option value="Instrumento de Medição">
+                    Instrumento de Medição
+                </option>
+
+                <option value="Elemento de Fixação">
+                    Elemento de Fixação
+                </option>
+
+                <option value="Chaves">
+                    Chaves
+                </option>
+
+                <option value="Ferramentas Manuai">
+                    Ferramentas Manuais
+                </option>
+
+                <option value="Ferramenta de Desbaste">
+                    Ferramenta de Desbaste
+                </option>
+
+                <option value="Rolamentos">
+                    Rolamentos
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- TABELA -->
+
+        <section>
+
+            <h2>Ferramentas disponíveis</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Código</th>
+
+                        <th>Descrição</th>
+
+                        <th>Quantidade</th>
+
+                        <th>Categoria</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaInsumos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL EDITAR -->
+
+    <div id="modal" class="modal">
+
+        <div class="modal-conteudo">
+
+            <h2>Editar ferramenta</h2>
+
+            <form id="formEditar">
+
+                <input type="hidden" id="editarId">
+
+                <input
+                    type="text"
+                    id="editarCodigo"
+                    placeholder="Código"
+                >
+
+                <input
+                    type="text"
+                    id="editarDescricao"
+                    placeholder="Descrição"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="editarQuantidade"
+                    placeholder="Quantidade"
+                    min="0"
+                    required
+                >
+
+                <select id="editarCategoria" required>
+
+                    <option value="Instrumento de Medição">
+                        Instrumento de Medição
+                    </option>
+
+                    <option value="Elemento de Fixação">
+                        Elemento de Fixação
+                    </option>
+
+                    <option value="Chaves">
+                        Chaves
+                    </option>
+
+                    <option value="Ferramentas Manuai">
+                        Ferramentas Manuais
+                    </option>
+
+                    <option value="Ferramenta de Desbaste">
+                        Ferramenta de Desbaste
+                    </option>
+
+                    <option value="Rolamentos">
+                        Rolamentos
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Salvar alterações
+                </button>
+
+                <button
+                    type="button"
+                    onclick="fecharModal()"
+                >
+                    Cancelar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
