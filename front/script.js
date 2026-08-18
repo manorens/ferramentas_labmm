@@ -271,57 +271,29 @@ document
 
             const resultado =
                 await resposta.json();
-
-
             if (!resposta.ok) {
-
                 alert(resultado.erro);
-
                 return;
             }
-
-
             alert('Ferramenta atualizada!');
-
-
             fecharModal();
-
             carregarInsumos();
-
-
         } catch (erro) {
-
             console.error(erro);
-
             alert('Erro ao atualizar.');
-
         }
-
     });
-
-
-// ==========================
 // EXCLUIR
-// ==========================
-
 async function excluirInsumo(id) {
-
     const confirmar =
         confirm('Deseja realmente excluir esta ferramenta?');
-
-
     if (!confirmar) {
         return;
     }
-
-
     try {
-
         const resposta =
             await fetch(`${API}/${id}`, {
-
                 method: 'DELETE'
-
             });
 
 

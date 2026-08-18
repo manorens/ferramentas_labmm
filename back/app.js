@@ -12,9 +12,7 @@ server.use(express.json());
 server.use(express.static(path.join(__dirname, '..', 'front')));
 
 
-// ==========================
 // LISTAR TODOS OS INSUMOS
-// ==========================
 
 server.get('/insumos', (req, res) => {
 
@@ -33,9 +31,7 @@ server.get('/insumos', (req, res) => {
 });
 
 
-// ==========================
 // BUSCAR UM INSUMO PELO ID
-// ==========================
 
 server.get('/insumos/:id', (req, res) => {
 
@@ -62,9 +58,7 @@ server.get('/insumos/:id', (req, res) => {
 });
 
 
-// ==========================
 // CADASTRAR INSUMO
-// ==========================
 
 server.post('/insumos', (req, res) => {
 
@@ -101,9 +95,7 @@ server.post('/insumos', (req, res) => {
 });
 
 
-// ==========================
 // ATUALIZAR INSUMO
-// ==========================
 
 server.put('/insumos/:id', (req, res) => {
 
@@ -150,9 +142,7 @@ server.put('/insumos/:id', (req, res) => {
 });
 
 
-// ==========================
 // EXCLUIR INSUMO
-// ==========================
 
 server.delete('/insumos/:id', (req, res) => {
 
@@ -181,9 +171,7 @@ server.delete('/insumos/:id', (req, res) => {
 });
 
 
-// ==========================
 // INICIAR SERVIDOR
-// ==========================
 
 const PORTA = 3067;
 
