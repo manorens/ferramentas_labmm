@@ -7,7 +7,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Inventário CTW</title>
+    <title>CentroWEG | Inventário</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
@@ -15,18 +19,37 @@
 
 <body>
 
-    <header>
+    <header class="tech-frame">
 
-        <h1>Inventário - Laboratório de Manutenção</h1>
+        <div class="header-inner">
 
-        <p>Centro de Tecnologia WEG</p>
+           <div class="logo-slot">
+            <div class="logo-circle">
+            <img
+            src="weg.png"
+            alt="Logo CentroWEG"
+            class="logo-img"
+            onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-placeholder',innerHTML:'<span>LOGO</span>'}));">
+        </div>
+        </div>
+
+            <div class="header-text">
+
+                <p class="eyebrow">Sistema de Inventário</p>
+
+                <h1>CentroWEG</h1>
+
+                <p class="subtitle">Inventário de Ferramentas — Laboratório de Manutenção</p>
+
+            </div>
+
+        </div>
 
     </header>
 
 
     <main>
 
-        <!-- CADASTRO -->
 
         <section class="cadastro">
 
@@ -96,8 +119,6 @@
         </section>
 
 
-        <!-- PESQUISA -->
-
         <section class="pesquisa">
 
             <input
@@ -141,46 +162,46 @@
         </section>
 
 
-        <!-- TABELA -->
-
-        <section>
+        <section class="tabela-secao">
 
             <h2>Ferramentas disponíveis</h2>
 
-            <table>
+            <div class="tabela-scroll">
 
-                <thead>
+                <table>
 
-                    <tr>
+                    <thead>
 
-                        <th>ID</th>
+                        <tr>
 
-                        <th>Código</th>
+                            <th>ID</th>
 
-                        <th>Descrição</th>
+                            <th>Código</th>
 
-                        <th>Quantidade</th>
+                            <th>Descrição</th>
 
-                        <th>Categoria</th>
+                            <th>Quantidade</th>
 
-                        <th>Ações</th>
+                            <th>Categoria</th>
 
-                    </tr>
+                            <th>Ações</th>
 
-                </thead>
+                        </tr>
 
-                <tbody id="tabelaInsumos">
+                    </thead>
 
-                </tbody>
+                    <tbody id="tabelaInsumos">
 
-            </table>
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </section>
 
     </main>
 
-
-    <!-- MODAL EDITAR -->
 
     <div id="modal" class="modal">
 
@@ -247,6 +268,7 @@
 
                 <button
                     type="button"
+                    class="btn-cancelar"
                     onclick="fecharModal()"
                 >
                     Cancelar

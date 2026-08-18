@@ -1,60 +1,243 @@
+/* ==========================
+   RESET
+========================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-    color: #222;
+:focus-visible {
+    outline: 3px solid var(--weg-blue-mid);
+    outline-offset: 2px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ==========================
+   TOKENS — PALETA WEG
+========================== */
+
+:root {
+
+    --weg-navy: #001B4D;
+    --weg-blue: #0046AD;
+    --weg-blue-mid: #1F5FC4;
+    --weg-blue-light: #E8F0FC;
+
+    --ink: #17202B;
+    --ink-soft: #4A5568;
+
+    --paper: #F3F6FA;
+    --white: #FFFFFF;
+    --border: #D8DFE8;
+
+    --danger: #D6293E;
+    --danger-dark: #B01D2E;
+
+    --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+    --radius: 6px;
+}
+
+
+/* ==========================
+   BASE
+========================== */
+
+body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
 header {
-    background: #111;
-    color: white;
-    padding: 25px;
-    text-align: center;
-    border-bottom: 4px solid #e30613;
+    background: var(--weg-navy);
+    color: var(--white);
+    border-bottom: 4px solid var(--weg-blue-mid);
+    position: relative;
+}
+
+/* Marcas de canto — referência a desenho técnico */
+header.tech-frame::before,
+header.tech-frame::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    width: 22px;
+    height: 22px;
+    border-top: 2px solid var(--weg-blue-mid);
+    opacity: 0.85;
+}
+
+header.tech-frame::before {
+    left: 14px;
+    border-left: 2px solid var(--weg-blue-mid);
+}
+
+header.tech-frame::after {
+    right: 14px;
+    border-right: 2px solid var(--weg-blue-mid);
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-text {
+    text-align: left;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--weg-blue-mid);
+    margin-bottom: 6px;
 }
 
 header h1 {
-    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+    margin-bottom: 6px;
 }
+
+header .subtitle {
+    color: #C7D6EE;
+    font-size: 15px;
+}
+
+
+/* ---- Logo ---- */
+
+.logo-slot {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Círculo branco ao fundo da logo */
+.logo-circle {
+    width: 72px;
+    height: 72px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--weg-blue-mid);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-placeholder {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--weg-navy);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
 
 main {
     width: 95%;
     max-width: 1400px;
-    margin: 30px auto;
+    margin: 32px auto;
 }
 
 section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--white);
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
 }
 
 h2 {
-    margin-bottom: 15px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--weg-navy);
+    margin-bottom: 16px;
 }
 
 
-/* FORMULÁRIO */
+/* ==========================
+   FORMULÁRIO
+========================== */
 
 form {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 input,
 select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--white);
+}
+
+input::placeholder {
+    color: #9AA5B4;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--weg-blue-mid);
 }
 
 form input,
@@ -65,27 +248,32 @@ form select {
 
 button {
     border: none;
-    padding: 11px 16px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: var(--radius);
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 15px;
+    transition: background 0.15s ease;
 }
 
-form button {
-    background: #e30613;
-    color: white;
+form button[type="submit"] {
+    background: var(--weg-blue);
+    color: var(--white);
 }
 
-form button:hover {
-    background: #b9000b;
+form button[type="submit"]:hover {
+    background: var(--weg-blue-mid);
 }
 
 
-/* PESQUISA */
+/* ==========================
+   PESQUISA
+========================== */
 
 .pesquisa {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .pesquisa input {
@@ -93,53 +281,83 @@ form button:hover {
 }
 
 
-/* TABELA */
+/* ==========================
+   TABELA
+========================== */
+
+.tabela-scroll {
+    overflow-x: auto;
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 640px;
 }
 
 th,
 td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--border);
     text-align: left;
+    font-size: 14.5px;
 }
 
 th {
-    background: #111;
-    color: white;
+    background: var(--weg-navy);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
-tr:hover {
-    background: #f5f5f5;
+/* ID e Quantidade em mono — leitura tipo "dado técnico" */
+td:nth-child(1),
+td:nth-child(4) {
+    font-family: var(--font-mono);
+    color: var(--ink-soft);
+}
+
+tbody tr:nth-child(even) {
+    background: var(--weg-blue-light);
+}
+
+tbody tr:hover {
+    background: #DCE8FA;
 }
 
 
-/* BOTÕES */
+/* ---- Botões de ação ---- */
 
 .btn-editar {
-    background: #222;
-    color: white;
-    margin-right: 5px;
+    background: var(--weg-navy);
+    color: var(--white);
+    margin-right: 6px;
+    padding: 8px 14px;
+    font-size: 13.5px;
 }
 
 .btn-excluir {
-    background: #e30613;
-    color: white;
+    background: var(--danger);
+    color: var(--white);
+    padding: 8px 14px;
+    font-size: 13.5px;
 }
 
 .btn-editar:hover {
-    background: #444;
+    background: var(--weg-blue);
 }
 
 .btn-excluir:hover {
-    background: #b9000b;
+    background: var(--danger-dark);
 }
 
 
-/* MODAL */
+/* ==========================
+   MODAL
+========================== */
 
 .modal {
     display: none;
@@ -152,21 +370,28 @@ tr:hover {
     width: 100%;
     height: 100%;
 
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 27, 77, 0.55);
 
     justify-content: center;
     align-items: center;
+
+    padding: 16px;
 }
 
 .modal-conteudo {
-    background: white;
+    background: var(--white);
 
-    padding: 30px;
+    padding: 28px;
 
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 560px;
 
-    border-radius: 8px;
+    border-radius: var(--radius);
+    border-top: 4px solid var(--weg-blue);
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 20px;
 }
 
 .modal-conteudo form {
@@ -175,4 +400,53 @@ tr:hover {
 
 .modal-conteudo button {
     width: 100%;
+}
+
+.modal-conteudo button[type="submit"] {
+    background: var(--weg-blue);
+    color: var(--white);
+    margin-top: 4px;
+}
+
+.modal-conteudo button[type="submit"]:hover {
+    background: var(--weg-blue-mid);
+}
+
+.btn-cancelar {
+    background: var(--paper);
+    color: var(--ink-soft);
+    border: 1px solid var(--border);
+    margin-top: 10px;
+}
+
+.btn-cancelar:hover {
+    background: #E8ECF1;
+}
+
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media (max-width: 640px) {
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+    }
+
+    header.tech-frame::before,
+    header.tech-frame::after {
+        display: none;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    section {
+        padding: 18px;
+    }
+
 }
